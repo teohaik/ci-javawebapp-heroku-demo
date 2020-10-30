@@ -1,5 +1,6 @@
 package com.example;
 
+import java.math.BigInteger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -21,10 +22,10 @@ public class Calculator {
             @PathParam("a") String a,
             @PathParam("b") String b){
 
-        int ai = Integer.valueOf(a);
-        int bi = Integer.valueOf(b);
-        int result = ai + bi;
-        return Response.status(200).entity(result).build();
+        BigInteger bigA = new BigInteger(a);
+        BigInteger bigB = new BigInteger(b);
+        BigInteger result = bigA.add(bigB);
+        return Response.status(200).entity(result.toString()).build();
     }
 
 }
